@@ -1,0 +1,72 @@
+# Milestone 1 — Airline IVR Modernization (Concise)
+
+## 1. Objective
+Assess legacy **VXML-based IVR** used in airline customer support and define requirements to integrate with **modern IVR**, **ACS (cloud communication services)**, and **BAP (automation platform)**.
+
+---
+## 2. Current Legacy System (Summary)
+- VXML menus for: flight status, booking, baggage, refunds.
+- Components:
+  - Telephony gateway
+  - VXML server
+  - ASR/TTS engine
+  - Media server
+  - CTI routing
+  - Backend SOAP connections to PSS/PNR
+- Limitations:
+  - Rigid DTMF menus
+  - Poor ASR accuracy
+  - Slow backend response
+  - No personalization / context
+
+---
+## 3. Airline Use-Case (Selected): Flight Status Enquiry
+**Flow:**
+1. Caller chooses language
+2. Caller inputs PNR or Flight Number
+3. IVR fetches live data from PSS
+4. System announces flight status
+5. Offers SMS update or agent transfer
+
+---
+## 4. Integration Requirements (ACS + BAP)
+### Functional
+- Real-time flight/PNR lookups
+- Cloud ASR/TTS
+- Multi-language IVR
+- Context-aware agent transfer
+- SMS/email alerts via BAP
+
+### Technical
+- SIP → ACS migration
+- Modern IVR built with ACS call automation
+- BAP orchestration for PSS + CRM APIs
+- Unified session storage
+- Secure REST API gateway
+
+---
+## 5. Technical Challenges & Gaps
+- DTMF failures on SIP migration
+- Legacy SOAP backend from PSS
+- Low ASR accuracy in VXML grammars
+- No session continuity
+- Compliance concerns (PII/Payments)
+- Weak monitoring & logging
+
+**Mitigation:** Cloud ASR, REST API wrappers, centralized logs, proper DTMF tuning, tokenized payments.
+
+---
+## 6. Modernization Roadmap
+1. Document existing VXML flows
+2. Build API façade in BAP (PSS + CRM)
+3. Move SIP workloads to ACS
+4. Rebuild priority flows (start with Flight Status)
+5. Add omnichannel notifications and automation
+
+---
+## 7. Deliverables (Milestone 1)
+- Legacy IVR assessment
+- Flight Status use-case mapping
+- Gap analysis
+- ACS + BAP integration requirements
+- Modernization roadmap
